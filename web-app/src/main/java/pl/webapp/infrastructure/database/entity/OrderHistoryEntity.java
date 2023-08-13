@@ -19,5 +19,11 @@ public class OrderHistoryEntity {
     @Column(name = "order_history_id")
     private Integer orderHistoryId;
 
-    // TODO: finish relations
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private OrderEntity order;
 }

@@ -3,6 +3,8 @@ package pl.webapp.infrastructure.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Data
 @With
 @Entity
@@ -19,5 +21,6 @@ public class BasketEntity {
     @Column(name = "basket_id")
     private Integer basketId;
 
-    // TODO: finish relations
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "basket", cascade = CascadeType.ALL)
+    private Set<OrderEntity> orderEntities;
 }

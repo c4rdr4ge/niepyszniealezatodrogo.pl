@@ -19,5 +19,11 @@ public class UserRoleEntity {
     @Column(name = "user_role_id")
     private Integer userRoleId;
 
-    // TODO: finish relations
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    private RoleEntity role;
 }

@@ -22,5 +22,7 @@ public class OrderMenuPositionEntity {
     @Column(name = "menu_position_id")
     private Integer menuPositionId;
 
-    // TODO: finish relations
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private OrderEntity order;
 }

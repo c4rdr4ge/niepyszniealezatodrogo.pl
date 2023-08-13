@@ -3,6 +3,8 @@ package pl.webapp.infrastructure.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Data
 @With
 @Entity
@@ -22,5 +24,6 @@ public class RoleEntity {
     @Column(name = "role_name")
     private String roleName;
 
-    // TODO: finish relations
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "role", cascade = CascadeType.ALL)
+    private Set<UserRoleEntity> userRoleEntities;
 }

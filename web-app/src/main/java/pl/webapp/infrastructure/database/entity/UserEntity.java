@@ -3,6 +3,8 @@ package pl.webapp.infrastructure.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Data
 @With
 @Entity
@@ -37,5 +39,15 @@ public class UserEntity {
     @Column(name = "user_email")
     private String userEmail;
 
-    // TODO: finish relations
+    @Column(name = "address_id")
+    private Integer addressId;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<OrderEntity> orderEntities;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<UserRoleEntity> userRoleEntities;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<OrderHistoryEntity> orderHistoryEntities;
 }

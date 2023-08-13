@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.OffsetDateTime;
+import java.util.Set;
 
 @Data
 @With
@@ -50,5 +51,17 @@ public class OrderEntity {
     @Column(name = "order_restaurant_id")
     private Integer orderRestaurantId;
 
-    // TODO: finish relations
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "basket_id")
+    private BasketEntity basket;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL)
+    private Set<OrderHistoryEntity> orderHistoryEntities;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL)
+    private Set<OrderMenuPositionEntity> orderMenuPositionEntities;
 }
