@@ -1,0 +1,42 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /restaurants-api
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/restaurants_api
+    username: postgres
+    password: Neogeo666
+    hikari:
+      idle-timeout: 10000
+      connection-timeout: 20000
+      minimum-idle: 10
+      maximum-pool-size: 20
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+      format-sql: true
+    properties:
+      hibernate:
+        show-sql: true
+        format-sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type: trace
+      springframework:
+        security: DEBUG
