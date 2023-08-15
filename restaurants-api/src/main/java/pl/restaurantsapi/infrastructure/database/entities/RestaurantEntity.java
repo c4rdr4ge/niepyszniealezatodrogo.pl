@@ -35,7 +35,7 @@ public class RestaurantEntity {
     @JoinColumn(name = "kitchen_type_id")
     private KitchenTypeEntity kitchenType;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private AddressEntity address;
 

@@ -39,8 +39,8 @@ public class UserEntity {
     @Column(name = "user_email")
     private String userEmail;
 
-    @Column(name = "address_id")
-    private Integer addressId;
+    @Column(name = "user_address_id")
+    private Integer userAddressId;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     private Set<OrderEntity> orderEntities;

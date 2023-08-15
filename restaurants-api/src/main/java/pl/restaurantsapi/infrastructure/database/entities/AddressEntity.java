@@ -3,6 +3,8 @@ package pl.restaurantsapi.infrastructure.database.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Data
 @With
 @Entity
@@ -34,9 +36,9 @@ public class AddressEntity {
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "address", cascade = CascadeType.ALL)
     private RestaurantOwnerEntity restaurantOwner;
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "address", cascade = CascadeType.ALL)
-    private RestaurantEntity restaurant;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "address", cascade = CascadeType.ALL)
+    private Set<RestaurantEntity> restaurantEntities;
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "address", cascade = CascadeType.ALL)
-    private AvailableAddressEntity availableAddress;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "address", cascade = CascadeType.ALL)
+    private Set<AvailableAddressEntity> availableAddressEntities;
 }

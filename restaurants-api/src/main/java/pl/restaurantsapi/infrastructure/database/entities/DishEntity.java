@@ -29,7 +29,7 @@ public class DishEntity {
     private String dishDescription;
 
     @Column(name = "dish_weight")
-    private String dishWeight;
+    private Integer dishWeight;
 
     @Column(name = "dish_photo_url")
     private String dishPhotoUrl;

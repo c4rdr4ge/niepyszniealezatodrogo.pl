@@ -33,8 +33,8 @@ public class OrderEntity {
     @Column(name = "order_number")
     private String orderNumber;
 
-    @Column(name = "address_id")
-    private Integer addressId;
+    @Column(name = "order_address_id")
+    private Integer orderAddressId;
 
     @Column(name = "order_date_time")
     private OffsetDateTime orderDateTime;

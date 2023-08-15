@@ -13,7 +13,7 @@ CREATE TABLE user_table
     user_surname                    VARCHAR(64)                 NOT NULL,
     user_phone                      VARCHAR(32)                 NOT NULL,
     user_email                      VARCHAR(64)                 NOT NULL,
-    address_id                      INTEGER                     NOT NULL,
+    user_address_id                 INTEGER                     NOT NULL,
     PRIMARY KEY (user_id)
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE order_table
 (
     order_id                        SERIAL                      NOT NULL,
     order_number                    VARCHAR(16)                 NOT NULL,
-    address_id                      INTEGER                     NOT NULL,
+    order_address_id                INTEGER                     NOT NULL,
     order_date_time                 TIMESTAMP WITH TIME ZONE    NOT NULL,
     order_delivered                 BOOLEAN                     NOT NULL,
     order_delivered_date_time       TIMESTAMP WITH TIME ZONE,
