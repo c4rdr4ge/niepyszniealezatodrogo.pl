@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString(of = {
         "orderNumber",
-        "addressId",
+        "orderAddressId",
         "orderDateTime",
         "orderDelivered",
         "orderDeliveredDateTime",
@@ -54,10 +54,6 @@ public class OrderEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity user;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "basket_id")
-    private BasketEntity basket;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "order", cascade = CascadeType.ALL)
     private Set<OrderHistoryEntity> orderHistoryEntities;

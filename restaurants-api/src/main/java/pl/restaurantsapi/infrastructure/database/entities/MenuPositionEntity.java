@@ -16,7 +16,7 @@ public class MenuPositionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "menu_postion_id")
+    @Column(name = "menu_position_id")
     private Integer menuPositionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
