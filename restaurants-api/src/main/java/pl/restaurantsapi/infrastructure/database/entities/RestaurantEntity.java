@@ -36,11 +36,11 @@ public class RestaurantEntity {
     private KitchenTypeEntity kitchenType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id")
+    @JoinColumn(name = "restaurant_address_id")
     private AddressEntity address;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "menu_id")
+    @JoinColumn(name = "restaurant_menu_id")
     private MenuEntity menu;
 
     @ManyToOne(fetch = FetchType.LAZY)

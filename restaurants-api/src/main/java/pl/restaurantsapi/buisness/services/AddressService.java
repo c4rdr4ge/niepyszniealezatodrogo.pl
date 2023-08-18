@@ -10,6 +10,7 @@ import pl.restaurantsapi.buisness.dto.mappers.AddressMapper;
 import pl.restaurantsapi.infrastructure.database.entities.AddressEntity;
 import pl.restaurantsapi.infrastructure.database.repositories.AddressRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,22 +31,23 @@ public class AddressService {
     }
 
     @Transactional
-    public AddressDTO getAddressByAddressStreet(String addressStreet) {
-        Optional<AddressEntity> address = addressRepository.findByAddressStreet(addressStreet);
-        if(address.isPresent()) {
-            return addressMapper.map(address.get());
-        } else {
-            throw new EntityNotFoundException("Address with addressStreet: [%s], not found".formatted(addressStreet));
-        }
+    public List<AddressDTO> getAddressByAddressStreet(String addressStreet) {
+        return addressRepository.findAll().stream()
+                .filter(address -> address.getAddressStreet().contains(addressStreet))
+                .map(address -> addressMapper.map(address))
+                .toList();
+
     }
 
     @Transactional
     public void addNewAddress (AddressDTO addressDTO) {
         AddressEntity address = AddressEntity.builder()
-                .addressCountry(addressDTO.getCountry())
-                .addressCity(addressDTO.getCity())
-                .addressPostalCode(addressDTO.getPostalCode())
-                .addressStreet(addressDTO.getStreet())
+                .addressCountry(addressDTO.getAddressCountry())
+                .addressCity(addressDTO.getAddressCity())
+                .addressPostalCode(addressDTO.getAddressPostalCode())
+                .addressStreet(addressDTO.getAddressStreet())
                 .build();
+
+        addressRepository.save(address);
     }
 }

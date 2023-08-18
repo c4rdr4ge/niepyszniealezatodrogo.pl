@@ -1,9 +1,3 @@
-CREATE TABLE basket
-(
-    basket_id                       SERIAL                      NOT NULL,
-    PRIMARY KEY (basket_id)
-);
-
 CREATE TABLE user_table
 (
     user_id                         SERIAL                      NOT NULL,
@@ -28,14 +22,10 @@ CREATE TABLE order_table
     order_add_info                  VARCHAR(256),
     order_restaurant_id             INTEGER                     NOT NULL,
     user_id                         INTEGER                     NOT NULL,
-    basket_id                       INTEGER                     NOT NULL,
     PRIMARY KEY (order_id),
     CONSTRAINT fk_user
         FOREIGN KEY (user_id)
-            REFERENCES user_table (user_id),
-    CONSTRAINT fk_basket
-        FOREIGN KEY (basket_id)
-            REFERENCES basket (basket_id)
+            REFERENCES user_table (user_id)
 );
 
 CREATE TABLE role
@@ -50,7 +40,7 @@ CREATE TABLE user_role
     user_role_id                    SERIAL                      NOT NULL,
     user_id                         INTEGER                     NOT NULL,
     role_id                         INTEGER                     NOT NULL,
-    PRIMARY KEY (user_role_id)
+    PRIMARY KEY (user_role_id),
     CONSTRAINT fk_user
         FOREIGN KEY (user_id)
             REFERENCES user_table (user_id),

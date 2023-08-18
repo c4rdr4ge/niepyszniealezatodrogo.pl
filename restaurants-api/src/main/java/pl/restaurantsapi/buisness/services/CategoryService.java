@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.restaurantsapi.buisness.dto.CategoryDTO;
+import pl.restaurantsapi.buisness.dto.RestaurantDTO;
 import pl.restaurantsapi.buisness.dto.mappers.CategoryMapper;
+import pl.restaurantsapi.buisness.dto.mappers.RestaurantMapper;
 import pl.restaurantsapi.infrastructure.database.entities.CategoryEntity;
 import pl.restaurantsapi.infrastructure.database.repositories.CategoryRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,4 +37,5 @@ public class CategoryService {
                 .build();
         categoryRepository.save(categoryEntity);
     }
+
 }

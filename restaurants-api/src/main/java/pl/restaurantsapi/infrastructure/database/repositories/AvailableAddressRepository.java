@@ -8,6 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface AvailableAddressRepository extends JpaRepository<AvailableAddressEntity, Integer> {
-    Optional<AvailableAddressEntity> findByRestaurant(Integer restaurantId);
 
 }

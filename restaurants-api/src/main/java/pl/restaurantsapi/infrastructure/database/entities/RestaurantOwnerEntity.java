@@ -43,7 +43,7 @@ public class RestaurantOwnerEntity {
     private String restaurantOwnerNip;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id")
+    @JoinColumn(name = "restaurant_owner_address_id")
     private AddressEntity address;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurantOwner", cascade = CascadeType.ALL)
