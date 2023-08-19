@@ -42,5 +42,7 @@ public class KitchenTypeService {
         KitchenTypeEntity kitchenTypeEntity = KitchenTypeEntity.builder()
                 .kitchenTypeName(kitchenTypeDTO.getKitchenTypeName())
                 .build();
+
+        kitchenTypeRepository.save(kitchenTypeEntity);
     }
 }

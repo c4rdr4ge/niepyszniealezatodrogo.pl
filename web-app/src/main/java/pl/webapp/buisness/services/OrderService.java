@@ -23,6 +23,13 @@ public class OrderService {
     UserMapper userMapper;
 
     @Transactional
+    public List<OrderDTO> getAllOrders(){
+        return orderRepository.findAll().stream()
+                .map(order -> orderMapper.map(order))
+                .toList();
+    }
+
+    @Transactional
     public OrderDTO getOrderByOrderNumber(String orderNumber) {
         return orderRepository.findAll().stream()
                 .filter(order -> orderNumber.equals(order.getOrderNumber()))
@@ -56,6 +63,7 @@ public class OrderService {
                 .orderRestaurantId(orderDTO.getOrderRestaurantId())
                 .user(userMapper.map(orderDTO.getUser()))
                 .build();
+        orderRepository.save(newOrder);
     }
 
     @Transactional

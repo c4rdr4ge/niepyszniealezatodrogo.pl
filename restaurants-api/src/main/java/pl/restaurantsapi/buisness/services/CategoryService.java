@@ -42,6 +42,7 @@ public class CategoryService {
         CategoryEntity categoryEntity = CategoryEntity.builder()
                 .categoryName(categoryDTO.getCategoryName())
                 .build();
+
         categoryRepository.save(categoryEntity);
     }
 

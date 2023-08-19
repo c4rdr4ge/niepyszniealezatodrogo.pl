@@ -57,6 +57,7 @@ public class MenuPositionService {
                 .menu(menuMapper.map(menuPositionDTO.getMenu()))
                 .dish(dishMapper.map(menuPositionDTO.getDish()))
                 .build();
+
         menuPositionRepository.save(newMenuPosition);
     }
 }

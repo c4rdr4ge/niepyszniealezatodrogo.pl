@@ -38,6 +38,7 @@ public class AvailableAddressService {
                 .address(addressMapper.map(availableAddressDTO.getAddress()))
                 .restaurant(restaurantMapper.map(availableAddressDTO.getRestaurant()))
                 .build();
+
         availableAddressRepository.save(availableAddress);
     }
 

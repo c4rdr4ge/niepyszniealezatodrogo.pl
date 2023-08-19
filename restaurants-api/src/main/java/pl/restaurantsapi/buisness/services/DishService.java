@@ -41,6 +41,8 @@ public class DishService {
                 .category(categoryMapper.map(dishDTO.getCategory()))
                 .kitchenType(kitchenTypeMapper.map(dishDTO.getKitchenType()))
                 .build();
+
+        dishRepository.save(dishEntity);
     }
 
     @Transactional

@@ -24,6 +24,13 @@ public class OrderHistoryService {
     UserMapper userMapper;
 
     @Transactional
+    public List<OrderHistoryDTO> getAllOrderHistory(){
+        return orderHistoryRepository.findAll().stream()
+                .map(orderHistory -> orderHistoryMapper.map(orderHistory))
+                .toList();
+    }
+
+    @Transactional
     public List<OrderHistoryDTO> getOrderHistoryByUserName(String username) {
         return orderHistoryRepository.findAll().stream()
                 .filter(orderHistory -> username.equals(orderHistory.getUser().getUserName()))
@@ -37,5 +44,6 @@ public class OrderHistoryService {
                 .order(orderMapper.map(orderHistoryDTO.getOrder()))
                 .user(userMapper.map(orderHistoryDTO.getUser()))
                 .build();
+        orderHistoryRepository.save(newOrderHistory);
     }
 }

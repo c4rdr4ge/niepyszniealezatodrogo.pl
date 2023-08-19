@@ -11,6 +11,8 @@ import pl.webapp.buisness.dto.mappers.UserRoleMapper;
 import pl.webapp.infrastructure.database.entity.UserRoleEntity;
 import pl.webapp.infrastructure.database.repositories.UserRoleRepository;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class UserRoleService {
@@ -22,10 +24,19 @@ public class UserRoleService {
     RoleMapper roleMapper;
 
     @Transactional
+    public List<UserRoleDTO> getAllUserRoles() {
+        return userRoleRepository.findAll().stream()
+                .map(userRole -> userRoleMapper.map(userRole))
+                .toList();
+    }
+
+    @Transactional
     public void addNewUserRole(UserRoleDTO userRoleDTO) {
         UserRoleEntity newUserRole = UserRoleEntity.builder()
                 .user(userMapper.map(userRoleDTO.getUser()))
                 .role(roleMapper.map(userRoleDTO.getRole()))
                 .build();
+
+        userRoleRepository.save(newUserRole);
     }
 }

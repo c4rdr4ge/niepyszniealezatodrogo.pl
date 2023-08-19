@@ -10,6 +10,7 @@ import pl.webapp.buisness.dto.mappers.RoleMapper;
 import pl.webapp.infrastructure.database.entity.RoleEntity;
 import pl.webapp.infrastructure.database.repositories.RoleRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,6 +21,13 @@ public class RoleService {
     RoleMapper roleMapper;
 
     @Transactional
+    public List<RoleDTO> getAllRoles(){
+        return roleRepository.findAll().stream()
+                .map(role -> roleMapper.map(role))
+                .toList();
+    }
+
+    @Transactional
     public RoleDTO getRoleById(Integer roleId) {
         Optional<RoleEntity> role = roleRepository.findById(roleId);
         if (role.isPresent()) {
@@ -27,12 +35,5 @@ public class RoleService {
         }else {
             throw new EntityNotFoundException("Role with roleId: [%s], not found.".formatted(roleId));
         }
-    }
-
-    @Transactional
-    public void addNewRole(RoleDTO roleDTO) {
-        RoleEntity newRole = RoleEntity.builder()
-                .roleName(roleDTO.getRoleName())
-                .build();
     }
 }

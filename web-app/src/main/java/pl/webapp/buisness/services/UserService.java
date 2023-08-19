@@ -10,12 +10,21 @@ import pl.webapp.buisness.dto.mappers.UserMapper;
 import pl.webapp.infrastructure.database.entity.UserEntity;
 import pl.webapp.infrastructure.database.repositories.UserRepository;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class UserService {
 
     UserRepository userRepository;
     UserMapper userMapper;
+
+    @Transactional
+    public List<UserDTO> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(user -> userMapper.map(user))
+                .toList();
+    }
 
     @Transactional
     public UserDTO getUserByUserName(String username) {
@@ -36,5 +45,7 @@ public class UserService {
                 .userEmail(userDTO.getUserEmail())
                 .userAddressId(userDTO.getUserAddressId())
                 .build();
+
+        userRepository.save(newUser);
     }
 }

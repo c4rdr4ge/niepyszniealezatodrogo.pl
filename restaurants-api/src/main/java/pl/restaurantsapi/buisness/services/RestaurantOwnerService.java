@@ -59,5 +59,7 @@ public class RestaurantOwnerService {
                 .restaurantOwnerNip(restaurantOwnerDTO.getRestaurantOwnerNip())
                 .address(addressMapper.map(restaurantOwnerDTO.getAddress()))
                 .build();
+
+        restaurantOwnerRepository.save(newRestaurantOwner);
     }
 }

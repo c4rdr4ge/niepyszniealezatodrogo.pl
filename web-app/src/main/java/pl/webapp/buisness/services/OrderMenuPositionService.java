@@ -11,6 +11,8 @@ import pl.webapp.buisness.dto.mappers.OrderMenuPositionMapper;
 import pl.webapp.infrastructure.database.entity.OrderMenuPositionEntity;
 import pl.webapp.infrastructure.database.repositories.OrderMenuPositionRepository;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class OrderMenuPositionService {
@@ -19,6 +21,13 @@ public class OrderMenuPositionService {
     OrderMenuPositionMapper orderMenuPositionMapper;
 
     OrderMapper orderMapper;
+
+    @Transactional
+    public List<OrderMenuPositionDTO> getAllOrderMenuPosition(){
+        return orderMenuPositionRepository.findAll().stream()
+                .map(orderMenuPosition -> orderMenuPositionMapper.map(orderMenuPosition))
+                .toList();
+    }
 
     @Transactional
     public OrderMenuPositionDTO getOrderMenuPositionByMenuPositionId(Integer menuPositionId) {
@@ -34,5 +43,6 @@ public class OrderMenuPositionService {
                 .menuPositionId(orderMenuPositionDTO.getMenuPositionId())
                 .order(orderMapper.map(orderMenuPositionDTO.getOrder()))
                 .build();
+        orderMenuPositionRepository.save(newOrderMenuPosition);
     }
 }
