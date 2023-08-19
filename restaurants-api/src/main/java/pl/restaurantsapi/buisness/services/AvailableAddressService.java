@@ -24,6 +24,14 @@ public class AvailableAddressService {
     AddressMapper addressMapper;
     RestaurantMapper restaurantMapper;
 
+
+    @Transactional
+    public List<AvailableAddressDTO> getAllAvailableAddresses(){
+        return availableAddressRepository.findAll().stream()
+                .map(address -> availableAddressMapper.map(address))
+                .toList();
+    }
+
     @Transactional
     public void addAvailableAddress(AvailableAddressDTO availableAddressDTO) {
         AvailableAddressEntity availableAddress = AvailableAddressEntity.builder()

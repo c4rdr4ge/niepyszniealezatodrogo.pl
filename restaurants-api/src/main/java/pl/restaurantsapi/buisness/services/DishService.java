@@ -24,6 +24,13 @@ public class DishService {
     KitchenTypeMapper kitchenTypeMapper;
 
     @Transactional
+    public List<DishDTO> getAllDishes(){
+        return dishRepository.findAll().stream()
+                .map(dish -> dishMapper.map(dish))
+                .toList();
+    }
+
+    @Transactional
     public void addNewDish(DishDTO dishDTO) {
         DishEntity dishEntity = DishEntity.builder()
                 .dishName(dishDTO.getDishName())

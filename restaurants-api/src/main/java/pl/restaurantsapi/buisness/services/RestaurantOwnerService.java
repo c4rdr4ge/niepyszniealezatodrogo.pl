@@ -11,6 +11,8 @@ import pl.restaurantsapi.buisness.dto.mappers.RestaurantOwnerMapper;
 import pl.restaurantsapi.infrastructure.database.entities.RestaurantOwnerEntity;
 import pl.restaurantsapi.infrastructure.database.repositories.RestaurantOwnerRepository;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class RestaurantOwnerService {
@@ -19,6 +21,13 @@ public class RestaurantOwnerService {
     RestaurantOwnerMapper restaurantOwnerMapper;
 
     AddressMapper addressMapper;
+
+    @Transactional
+    public List<RestaurantOwnerDTO> getAllRestaurantOwners(){
+        return restaurantOwnerRepository.findAll().stream()
+                .map(restaurantOwner -> restaurantOwnerMapper.map(restaurantOwner))
+                .toList();
+    }
 
     @Transactional
     public RestaurantOwnerDTO getRestaurantOwnerByEmail(String email) {

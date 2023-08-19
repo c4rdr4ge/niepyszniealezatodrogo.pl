@@ -37,6 +37,13 @@ public class MenuPositionService {
     }
 
     @Transactional
+    public List<MenuPositionDTO> getAllMenuPositions() {
+        return menuPositionRepository.findAll().stream()
+                .map(menuPosition -> menuPositionMapper.map(menuPosition))
+                .toList();
+    }
+
+    @Transactional
     public List<MenuPositionDTO> getMenuPositionsByMenuId(Integer menuId) {
         return menuPositionRepository.findAll().stream()
                 .filter(menuPosition -> menuId.equals(menuPosition.getMenuPositionId()))

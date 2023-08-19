@@ -21,6 +21,13 @@ public class AddressService {
     AddressMapper addressMapper;
 
     @Transactional
+    public List<AddressDTO> getAllAddresses(){
+        return addressRepository.findAll().stream()
+                .map(address -> addressMapper.map(address))
+                .toList();
+    }
+
+    @Transactional
     public AddressDTO getAddressById(Integer addressId) {
         Optional<AddressEntity> address = addressRepository.findById(addressId);
         if(address.isPresent()) {

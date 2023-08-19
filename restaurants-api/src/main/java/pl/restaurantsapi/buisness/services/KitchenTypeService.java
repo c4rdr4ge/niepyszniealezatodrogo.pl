@@ -10,6 +10,7 @@ import pl.restaurantsapi.buisness.dto.mappers.KitchenTypeMapper;
 import pl.restaurantsapi.infrastructure.database.entities.KitchenTypeEntity;
 import pl.restaurantsapi.infrastructure.database.repositories.KitchenTypeRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +19,13 @@ public class KitchenTypeService {
 
     KitchenTypeRepository kitchenTypeRepository;
     KitchenTypeMapper kitchenTypeMapper;
+
+    @Transactional
+    public List<KitchenTypeDTO> getAllKitchenTypes(){
+        return kitchenTypeRepository.findAll().stream()
+                .map(kitchenType -> kitchenTypeMapper.map(kitchenType))
+                .toList();
+    }
 
     @Transactional
     public KitchenTypeDTO getKitchenTypeById(Integer kitchenTypeId) {

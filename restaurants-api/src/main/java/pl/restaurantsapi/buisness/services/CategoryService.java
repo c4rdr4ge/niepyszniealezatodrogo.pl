@@ -23,6 +23,13 @@ public class CategoryService {
     CategoryMapper categoryMapper;
 
     @Transactional
+    public List<CategoryDTO> getAllCategories() {
+        return categoryRepository.findAll().stream()
+                .map(category -> categoryMapper.map(category))
+                .toList();
+    }
+
+    @Transactional
     public CategoryDTO getCategoryById(Integer categoryId) {
         Optional<CategoryEntity> category = categoryRepository.findById(categoryId);
         if (category.isPresent()) {

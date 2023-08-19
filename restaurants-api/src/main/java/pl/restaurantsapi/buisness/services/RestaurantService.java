@@ -30,6 +30,13 @@ public class RestaurantService {
     MenuMapper menuMapper;
 
     @Transactional
+    public List<RestaurantDTO> getAllRestaurants() {
+        return restaurantRepository.findAll().stream()
+                .map(restaurant -> restaurantMapper.map(restaurant))
+                .toList();
+    }
+
+    @Transactional
     public RestaurantDTO getRestaurantById(Integer restaurantId) {
         Optional<RestaurantEntity> restaurantEntity = restaurantRepository.findById(restaurantId);
         if (restaurantEntity.isPresent()) {
@@ -40,9 +47,17 @@ public class RestaurantService {
     }
 
     @Transactional
-    public List<RestaurantDTO> getRestaurantsByKitchenType(String kitchenTypeName) {
+    public List<RestaurantDTO> getRestaurantsByKitchenTypeName(String kitchenTypeName) {
         return restaurantRepository.findAll().stream()
                 .filter(restaurant -> kitchenTypeName.equals(restaurant.getKitchenType().getKitchenTypeName()))
+                .map(restaurant -> restaurantMapper.map(restaurant))
+                .toList();
+    }
+
+    @Transactional
+    public List<RestaurantDTO> getRestaurantsByRestaurantName(String restaurantName) {
+        return restaurantRepository.findAll().stream()
+                .filter(restaurant -> restaurantName.equals(restaurant.getRestaurantName()))
                 .map(restaurant -> restaurantMapper.map(restaurant))
                 .toList();
     }

@@ -27,6 +27,13 @@ public class MenuService {
     KitchenTypeMapper kitchenTypeMapper;
 
     @Transactional
+    public List<MenuDTO> getAllMenus(){
+        return menuRepository.findAll().stream()
+                .map(menu -> menuMapper.map(menu))
+                .toList();
+    }
+
+    @Transactional
     public MenuDTO getMenuById(Integer menuId) {
         Optional<MenuEntity> menuEntity = menuRepository.findById(menuId);
         if (menuEntity.isPresent()) {

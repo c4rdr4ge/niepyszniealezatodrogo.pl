@@ -17,13 +17,18 @@ public class AddressController {
 
     AddressService addressService;
 
+    @GetMapping(value = "/address", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<AddressDTO> allAddresses(){
+        return addressService.getAllAddresses();
+    }
+
     @GetMapping(value = "/address/{addressId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public AddressDTO addressDetailsById(@PathVariable Integer addressId) {
         return addressService.getAddressById(addressId);
     }
 
     @GetMapping(value = "/address/street/{streetName}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<AddressDTO> addressDetailsByStreetName(@PathVariable String streetName) {
+    public List<AddressDTO> addressesByStreetName(@PathVariable String streetName) {
         return addressService.getAddressByAddressStreet(streetName);
     }
 

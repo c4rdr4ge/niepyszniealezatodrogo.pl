@@ -20,6 +20,11 @@ public class AvailableAddressController {
 
     AvailableAddressService availableAddressService;
 
+    @GetMapping(value = "/available-address", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<AvailableAddressDTO> getAllAvailableAddresses() {
+        return availableAddressService.getAllAvailableAddresses();
+    }
+
     @PostMapping(value = "/available-address", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AvailableAddressDTO> addNewAvailableAddress(@RequestBody AvailableAddressDTO availableAddressDTO) {
         availableAddressService.addAvailableAddress(availableAddressDTO);
