@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Handjet:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Handjet", "Arial", sans-serif;
+  color: white;
+}
+
+html {
+  background-color: #0c4c90;
+}
+
+header {
+  height: 200px;
+  text-align: center;
+}
+
+header img {
+  display: inline;
+  height: 200px;
+}
+
+form {
+  text-align: center;
+}
+
+form div {
+  text-align: center;
+  margin: 10px 0;
+  line-height: 2.5rem;
+  font-size: 2rem;
+}
+
+form input {
+  font-size: 2rem;
+  color: darkslategrey;
+}
+
+form select {
+  font-size: 2rem;
+  color: black;
+}
+
+form select option {
+  color: black;
+}
+
+.btn-login {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 40px;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-family: "Handjet", "Arial", sans-serif;
+  font-size: 32px;
+  color: white;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+
+.btn-login:hover {
+  color: #0c4c90;
+  background-color: white;
+  transition: 1s;
+  cursor: pointer;
+}

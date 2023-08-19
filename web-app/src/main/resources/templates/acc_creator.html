@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Niepysznie - Sing up</title>
+    <link rel="stylesheet" href="../static/css/acc_creator.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../static/images/logo_final.png" alt="logo of company" />
+    </header>
+    <main>
+      <form>
+        <div>
+          <p>Username:</p>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Your username"
+          />
+        </div>
+        <div>
+          <p>Password:</p>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+        <div>
+          <p>Name:</p>
+          <input type="text" id="name" name="name" placeholder="Your Name" />
+        </div>
+        <div>
+          <p>Surname:</p>
+          <input
+            type="text"
+            id="surname"
+            name="surname"
+            placeholder="Your surname"
+          />
+        </div>
+        <div>
+          <p>Phone Number:</p>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="+48 000 000 000"
+          />
+        </div>
+        <div>
+          <p>Email:</p>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="something@company.pl"
+          />
+        </div>
+        <div>
+          <p>Country:</p>
+          <input type="text" id="country" name="country" placeholder="Poland" />
+        </div>
+        <div>
+          <p>City:</p>
+          <input type="text" id="city" name="city" placeholder="Białystok" />
+        </div>
+        <div>
+          <p>Postal Code:</p>
+          <input
+            type="text"
+            id="postalCode"
+            name="postalCode"
+            placeholder="15-669"
+          />
+        </div>
+        <div>
+          <p>Street:</p>
+          <input
+            type="text"
+            id="street"
+            name="street"
+            placeholder="Wolska 4 m 4"
+          />
+        </div>
+        <div>
+          <p>Account Role:</p>
+          <select name="role" id="role">
+            <option value="OWNER">Owner</option>
+            <option value="CUSTOMER">Customer</option>
+            <option value="DELIVERY">Delivery</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-create">Create Account</button>
+      </form>
+    </main>
+  </body>
+</html>
