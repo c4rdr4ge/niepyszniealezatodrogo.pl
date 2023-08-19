@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Handjet:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Handjet", "Arial", sans-serif;
+  color: white;
+}
+
+html {
+  background-color: #0c4c90;
+}
+
+header {
+  height: 100px;
+}
+
+header img {
+  display: block;
+  float: left;
+  height: 100px;
+  margin-left: 5vw;
+}
+
+.panel_name {
+  display: block;
+  float: left;
+  line-height: 100px;
+  padding-left: 30px;
+  font-size: 2rem;
+}
+
+.button_container {
+  display: block;
+  float: right;
+}
+
+.btn_menu {
+  display: block;
+  float: left;
+  background-color: #0c4c90;
+  border: 2px solid white;
+  border-radius: 20px;
+  font-size: 20px;
+  padding: 20px 40px;
+  margin: 20px 10px;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.btn_menu:hover {
+  background-color: white;
+  color: #0c4c90;
+}
+
+h1 {
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+.list_container {
+  width: 96vw;
+  margin: 0 auto;
+}
+
+.row:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.column {
+  display: block;
+  float: left;
+  border: 2px solid white;
+  padding: 20px;
+  font-size: 1.3rem;
+}
+
+.col-1 {
+  width: 25%;
+}
+
+.col-2 {
+  width: 25%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 25%;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-menu {
+  display: block;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-family: "Handjet", "Arial", sans-serif;
+  font-size: 1.15rem;
+  color: white;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+
+.btn-menu:hover {
+  color: #0c4c90;
+  background-color: white;
+  transition: 1s;
+  cursor: pointer;
+}

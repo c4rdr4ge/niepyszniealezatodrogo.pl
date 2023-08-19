@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Handjet:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Handjet", "Arial", sans-serif;
+  color: white;
+}
+
+html {
+  background-color: #0c4c90;
+}
+
+header {
+  height: 100px;
+}
+
+header img {
+  display: block;
+  float: left;
+  height: 100px;
+  margin-left: 5vw;
+}
+
+.panel_name {
+  display: block;
+  float: left;
+  line-height: 100px;
+  padding-left: 30px;
+  font-size: 2rem;
+}
+
+.button_container {
+  display: block;
+  float: right;
+}
+
+.btn_menu {
+  display: block;
+  float: left;
+  background-color: #0c4c90;
+  border: 2px solid white;
+  border-radius: 20px;
+  font-size: 20px;
+  padding: 20px 40px;
+  margin: 20px 10px;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.btn_menu:hover {
+  background-color: white;
+  color: #0c4c90;
+}
+
+h1 {
+  margin-left: 30px;
+  margin-top: 40px;
+}
+
+.list_container {
+  width: 96vw;
+  margin: 20px auto;
+}
+
+.row:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.column {
+  display: block;
+  float: left;
+  border: 2px solid white;
+  padding: 20px;
+  font-size: 1.3rem;
+}
+
+.col-1 {
+  width: 20%;
+}
+
+.col-2 {
+  width: 20%;
+}
+
+.col-3 {
+  width: 20%;
+}
+
+.col-4 {
+  width: 20%;
+}
+
+.col-5 {
+  width: 20%;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
