@@ -4,18 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ERROR_PAGE</title>
-    <link rel="stylesheet" href="../static/css/error.css" />
+    <link rel="stylesheet" th:href="@{/css/error.css}" />
   </head>
   <body>
     <header>
-      <img src="../static/images/logo_final.png" alt="logo of company" />
+      <img th:src="@{/images/logo_final.png}" alt="logo of company" />
     </header>
     <main>
-      <button class="btn-login">Login</button>
-      <button class="btn-create">Create Account</button>
+      <h1>SOMETHING GOES WRONG :)</h1>
     </main>
-    <footer>
-      <p>It's a footer, nothing else. Please don't click! Thank you.</p>
-    </footer>
   </body>
 </html>

@@ -7,9 +7,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/web_app
-    username: postgres
-    password: Neogeo666
+    url: jdbc:postgresql://app-db:5433/app-database
+    username: appuser
+    password: apppassword
     hikari:
       idle-timeout: 10000
       connection-timeout: 20000

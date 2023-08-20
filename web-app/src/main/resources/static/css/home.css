@@ -12,6 +12,12 @@ html {
   color: white;
 }
 
+form {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px
+}
+
 header {
   text-align: center;
   margin-top: 5vh;
@@ -28,7 +34,6 @@ main {
 
 .btn-login {
   padding: 10px 40px;
-  margin-right: 60px;
   border: 2px solid white;
   border-radius: 10px;
   font-family: "Handjet", "Arial", sans-serif;

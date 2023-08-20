@@ -4,17 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Niepysznie - Historia zamówień</title>
-    <link rel="stylesheet" href="../static/css/order_history.css" />
+    <link rel="stylesheet" th:href="@{/css/order_history.css}" />
   </head>
   <body>
+  <form>
     <header>
-      <img src="../static/images/logo_final.png" alt="logo" />
+      <img th:src="@{/images/logo_final.png}" alt="logo" />
       <div class="panel_name">PANEL KLIENTA</div>
       <div class="button_container clearfix">
-        <button class="btn_menu">POWRÓT</button>
-        <button class="btn_menu">AKTUALNE ZAMÓWIENIA</button>
-        <button class="btn_menu">HISTORIA ZAMÓWIEŃ</button>
-        <button class="btn_menu clearfix">LOGOUT</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/customer-panel}">POWRÓT</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/show-orders-customer}">AKTUALNE ZAMÓWIENIA</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/show-orders-customer}">HISTORIA ZAMÓWIEŃ</button>
+        <button type="submit" class="btn_menu clearfix" th:formaction="@{/show-orders-customer}">LOGOUT</button>
       </div>
     </header>
     <main>
@@ -34,5 +35,6 @@
         </div>
       </div>
     </main>
+  </form>
   </body>
 </html>

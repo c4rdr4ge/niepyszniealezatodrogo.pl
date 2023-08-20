@@ -7,16 +7,17 @@
     <link rel="stylesheet" th:href="@{/css/add_streets.css}" />
   </head>
   <body>
+  <form>
     <header>
       <img th:src="@{/images/logo_final.png}" alt="logo" />
       <div class="panel_name">PANEL WŁAŚCICIELA</div>
       <div class="button_container clearfix">
-        <button class="btn_menu">POWRÓT</button>
-        <button class="btn_menu">NOWA RESTAURACJA</button>
-        <button class="btn_menu">DODAJ MENU</button>
-        <button class="btn_menu">DODAJ ULICE</button>
-        <button class="btn_menu">ZAMÓWIENIA</button>
-        <button class="btn_menu clearfix">LOGOUT</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/owner-panel}">POWRÓT</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/create-restaurant}">NOWA RESTAURACJA</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/create-menu}">DODAJ MENU</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/add-street}">DODAJ ULICE</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/show-orders}">ZAMÓWIENIA</button>
+        <button type="submit" class="btn_menu clearfix" th:formaction="@{/}">LOGOUT</button>
       </div>
     </header>
     <main>
@@ -36,5 +37,6 @@
       </div>
     </main>
     <h1>ADRESY W BAZIE DANYCH:</h1>
+  </form>
   </body>
 </html>

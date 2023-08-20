@@ -4,17 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Niepysznie - Menu Restauracji</title>
-    <link rel="stylesheet" href="../static/css/show_menu.css" />
+    <link rel="stylesheet" th:href="@{/css/show_menu.css}" />
   </head>
   <body>
+  <form>
     <header>
-      <img src="../static/images/logo_final.png" alt="logo" />
+      <img th:src="@{/images/logo_final.png}" alt="logo" />
       <div class="panel_name">PANEL KLIENTA</div>
       <div class="button_container clearfix">
-        <button class="btn_menu">POWRÓT</button>
-        <button class="btn_menu">AKTUALNE ZAMÓWIENIA</button>
-        <button class="btn_menu">HISTORIA ZAMÓWIEŃ</button>
-        <button class="btn_menu clearfix">LOGOUT</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/customer-panel}">POWRÓT</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/show-orders-customer}">AKTUALNE ZAMÓWIENIA</button>
+        <button type="submit" class="btn_menu" th:formaction="@{/order-history}">HISTORIA ZAMÓWIEŃ</button>
+        <button type="submit" class="btn_menu clearfix" th:formaction="@{/}">LOGOUT</button>
       </div>
     </header>
     <main>
@@ -40,7 +41,7 @@
           </div>
           <div class="column col-3">150g</div>
           <div class="column col-4">
-            <img src="../static/images/dish1.jpg" alt="dish picture" />
+            <img th:src="@{/images/dish1.jpg}" alt="dish picture" />
           </div>
           <div class="column col-5">111.33</div>
           <div class="column col-6">NAPÓJ ALKOHOLOWY</div>
@@ -59,7 +60,7 @@
           </div>
           <div class="column col-3">150g</div>
           <div class="column col-4">
-            <img src="../static/images/dish2.jpg" alt="dish picture" />
+            <img th:src="@{/images/dish2.jpg}" alt="dish picture" />
           </div>
           <div class="column col-5">111.33</div>
           <div class="column col-6">NAPÓJ ALKOHOLOWY</div>
@@ -91,7 +92,7 @@
           </div>
           <div class="column col-3">150g</div>
           <div class="column col-4">
-            <img src="../static/images/dish2.jpg" alt="dish picture" />
+            <img th:src="@{/images/dish2.jpg}" alt="dish picture" />
           </div>
           <div class="column col-5">111.33</div>
           <div class="column col-6">NAPÓJ ALKOHOLOWY</div>
@@ -103,5 +104,6 @@
       </div>
       <button type="submit" class="accept_order">POTWIERDŹ ZAMÓWIENIE</button>
     </main>
+  </form>
   </body>
 </html>

@@ -11,8 +11,12 @@
       <img th:src="@{/images/logo_final.png}" alt="logo of company" />
     </header>
     <main>
+      <form action="#" th:action="@{/login}" th:method="GET">
       <button class="btn-login">Login</button>
+      </form>
+      <form action="#" th:action="@{/signup}" th:method="GET">
       <button class="btn-create">Create Account</button>
+      </form>
     </main>
     <footer>
       <p>It's a footer, nothing else. Please don't click! Thank you.</p>
