@@ -23,12 +23,12 @@ public class MenuPositionController {
         return menuPositionService.getMenuPositionById(menuPositionId);
     }
 
-    @GetMapping(value = "menu-position", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/menu-position", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<MenuPositionDTO> getAllMenuPositions(){
         return menuPositionService.getAllMenuPositions();
     }
 
-    @GetMapping(value = "menu-position-by-menu-id/{menuId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/menu-position-by-menu-id/{menuId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<MenuPositionDTO> getMenuPositionsByMenuId(@PathVariable Integer menuId) {
         return menuPositionService.getMenuPositionsByMenuId(menuId);
     }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Niepysznie - Panel Właściciela Restauracji</title>
+    <link rel="stylesheet" href="../static/css/create_restaurant.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../static/images/logo_final.png" alt="logo" />
+      <div class="panel_name">PANEL WŁAŚCICIELA</div>
+      <div class="button_container clearfix">
+        <button class="btn_menu">POWRÓT</button>
+        <button class="btn_menu">NOWA RESTAURACJA</button>
+        <button class="btn_menu">DODAJ MENU</button>
+        <button class="btn_menu">DODAJ ULICE</button>
+        <button class="btn_menu">ZAMÓWIENIA</button>
+        <button class="btn_menu clearfix">LOGOUT</button>
+      </div>
+    </header>
+    <main>
+      <h1>UTWÓRZ RESTAURACJĘ:</h1>
+      <form>
+        <div>
+          <p>Nazwa Restauracji:</p>
+          <input type="text" id="name" name="name" placeholder="Twoja nazwa" />
+        </div>
+        <div>
+          <p>Numer tel.</p>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="+48 000 000 000"
+          />
+        </div>
+        <div>
+          <p>Typ kuchni:</p>
+          <input
+            type="text"
+            id="kitchen_type"
+            name="kitchen_type"
+            placeholder="Japanese"
+          />
+        </div>
+        <div>
+          <p>Kraj:</p>
+          <input type="text" id="country" name="country" placeholder="Poland" />
+        </div>
+        <div>
+          <p>Miasto:</p>
+          <input type="text" id="city" name="city" placeholder="Białystok" />
+        </div>
+        <div>
+          <p>Kod pocztowy:</p>
+          <input
+            type="text"
+            id="postal_code"
+            name="postal_code"
+            placeholder="15-669"
+          />
+        </div>
+        <div>
+          <p>Ulica:</p>
+          <input
+            type="text"
+            id="street"
+            name="street"
+            placeholder="Wolska 4 m 4"
+          />
+        </div>
+        <div class="btn-cont">
+          <button type="submit" class="btn-create">UTWÓRZ</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

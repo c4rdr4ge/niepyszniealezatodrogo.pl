@@ -23,7 +23,7 @@ public class OrderMenuPositionRESTController {
         return orderMenuPositionService.getAllOrderMenuPosition();
     }
 
-    @GetMapping(value = "/order-menu-position-by-menu-position-id/{menuPositionId", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/order-menu-position-by-menu-position-id/{menuPositionId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public OrderMenuPositionDTO getOrderMenuPositionByMenuPositionId(@PathVariable Integer menuPositionId) {
         return orderMenuPositionService.getOrderMenuPositionByMenuPositionId(menuPositionId);
     }

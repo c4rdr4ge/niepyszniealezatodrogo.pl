@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Niepysznie - Panel Kuriera</title>
-    <link rel="stylesheet" href="../static/css/courier_panel.css" />
+    <link rel="stylesheet" th:href="@{/css/courier_panel.css}" />
   </head>
   <body>
     <header>
-      <img src="../static/images/logo_final.png" alt="logo" />
+      <img th:src="@{/images/logo_final.png}" alt="logo" />
       <div class="panel_name">PANEL KURIERA</div>
       <div class="button_container clearfix">
         <button class="btn_menu clearfix">LOGOUT</button>
@@ -26,13 +26,15 @@
         </div>
       </div>
       <div class="list_container">
-        <div class="row clearfix">
-          <div class="column col-1">NAZWA RESTAURACJI</div>
-          <div class="column col-2">NUMER ZAMÓWIENIA</div>
-          <div class="column col-3">ADRES ZAMÓWIENIA</div>
-          <div class="column col-4">DATA ZAMÓWIENIA</div>
+        <div class="row clearfix" th:each="order : ${orders}">
+          <div class="column col-1" th:text="${order.orderRestaurantName}">NAZWA RESTAURACJI</div>
+          <div class="column col-2" th:text="${order.orderNumber}">111-12345</div>
+          <div class="column col-3" th:text="${order.orderAddressStreet}">ADRES ZAMÓWIENIA</div>
+          <div class="column col-4" th:text="${order.orderDateTime}">DATA ZAMÓWIENIA</div>
           <div class="column col-5 clearfix">
-            <button class="btn-menu">DOSTARCZ</button>
+            <form action="#" th:action="@{/courier-panel/{orderNumber}(orderNumber=${order.orderNumber})}" th:method="PUT">
+              <button type="submit" class="btn-menu" >DOSTARCZ</button>
+            </form>
           </div>
         </div>
       </div>

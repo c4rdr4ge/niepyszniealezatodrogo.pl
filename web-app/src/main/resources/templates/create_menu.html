@@ -1,0 +1,139 @@
+<DOCTYPE html>
+  <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Niepysznie - Panel Tworzenia Menu</title>
+      <link rel="stylesheet" href="../static/css/create_menu.css" />
+    </head>
+    <body>
+      <header>
+        <img src="../static/images/logo_final.png" alt="logo" />
+        <div class="panel_name">PANEL WŁAŚCICIELA</div>
+        <div class="button_container">
+          <button class="btn_menu">POWRÓT</button>
+          <button class="btn_menu">NOWA RESTAURACJA</button>
+          <button class="btn_menu">DODAJ MENU</button>
+          <button class="btn_menu">DODAJ ULICE</button>
+          <button class="btn_menu">ZAMÓWIENIA</button>
+          <button class="btn_menu clearfix">LOGOUT</button>
+        </div>
+      </header>
+      <main>
+        <h1>DODAJ POZYCJĘ DO MENU:</h1>
+        <form class="clearfix">
+          <div>
+            <p>NAZWA DANIA:</p>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Twoja nazwa"
+            />
+          </div>
+          <div>
+            <p>OPIS DANIA:</p>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Coś o daniu"
+            />
+          </div>
+          <div>
+            <p>WAGA:</p>
+            <input
+              type="number"
+              id="weight"
+              name="weight"
+              min="1"
+              placeholder="100"
+            />
+          </div>
+          <div>
+            <label for="file-upload" class="btn-file clearfix">
+              DODAJ ZDJĘCIE
+            </label>
+            <input
+              id="file-upload"
+              name="upload_cont_img"
+              type="file"
+              accept=".jpg"
+            />
+          </div>
+          <div>
+            <p>CENA:</p>
+            <input
+              type="number"
+              step="0.01"
+              min="0.01"
+              id="price"
+              name="price"
+              placeholder="12.60"
+            />
+          </div>
+          <div>
+            <p>KATEGORIA:</p>
+            <select name="dish_category" id="dish_category">
+              <option value="dish_category">ZUPA</option>
+              <option value="dish_category">GŁÓWNE DANIE</option>
+              <option value="dish_category">NAPÓJ ALKOHOLOWY</option>
+            </select>
+          </div>
+          <div>
+            <p>TYP KUCHNI:</p>
+            <select name="kitchen_type" id="kitchen_type">
+              <option value="kitchen_type">JAPOŃSKA</option>
+              <option value="kitchen_type">GRECKA</option>
+              <option value="kitchen_type">AMERYKAŃSKA</option>
+            </select>
+          </div>
+          <div class="clearfix">
+            <button type="submit" class="btn-create">DODAJ POZYCJĘ</button>
+          </div>
+        </form>
+      </main>
+      <h1>POZYCJE W MENU RESTAURACJI:</h1>
+      <div class="menu_postions_list">
+        <div class="row clearfix">
+          <div class="column col-1">NAZWA DANIA</div>
+          <div class="column col-2">OPIS DANIA</div>
+          <div class="column col-3">WAGA</div>
+          <div class="column col-4">ZDJĘCIE</div>
+          <div class="column col-5">CENA</div>
+          <div class="column col-6">CATEGORIA</div>
+          <div class="column col-7">TYP KUCHNI</div>
+          <div class="column col-8">USUŃ POZYCJĘ</div>
+        </div>
+        <div class="row clearfix">
+          <div class="column description col-1">
+            Pierogi z kapustą i grzybami
+          </div>
+          <div class="column description col-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro,
+            ipsum.
+          </div>
+          <div class="column col-3">150g</div>
+          <div class="column col-4">
+            <img src="../static/images/dish1.jpg" alt="dish picture" />
+          </div>
+          <div class="column col-5">111.33</div>
+          <div class="column col-6">NAPÓJ ALKOHOLOWY</div>
+          <div class="column col-7">AMERYKAŃSKA</div>
+          <div class="column col-8">
+            <button type="submit" class="btn-delete">USUŃ POZYCJĘ</button>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+        $("#file-upload").change(function () {
+          var i = $(this).prev("label").clone();
+          var file = $("#file-upload")[0].files[0].name;
+          $(this).prev("label").text(file);
+        });
+      </script>
+    </body>
+  </html>
+</DOCTYPE>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Niepysznie - Szczegóły zamówienia</title>
+    <link rel="stylesheet" href="../static/css/order_details.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../static/images/logo_final.png" alt="logo" />
+      <div class="panel_name">SZCZEGÓŁY ZAMÓWIENIA</div>
+      <div class="button_container clearfix">
+        <button class="btn_menu">POWRÓT</button>
+        <button class="btn_menu clearfix">LOGOUT</button>
+      </div>
+    </header>
+    <main>
+      <h1>ZAMÓWIENIE NR: 111-12345</h1>
+      <div class="menu_postions_list">
+        <div class="row clearfix">
+          <div class="column col-1">NAZWA DANIA</div>
+          <div class="column col-2">OPIS DANIA</div>
+          <div class="column col-3">WAGA</div>
+          <div class="column col-4">ZDJĘCIE</div>
+          <div class="column col-5">CENA</div>
+          <div class="column col-6">CATEGORIA</div>
+          <div class="column col-7">TYP KUCHNI</div>
+        </div>
+        <div class="row clearfix">
+          <div class="column description col-1">
+            Pierogi z kapustą i grzybami
+          </div>
+          <div class="column description col-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro,
+            ipsum.
+          </div>
+          <div class="column col-3">150g</div>
+          <div class="column col-4">
+            <img src="../static/images/dish2.jpg" alt="dish picture" />
+          </div>
+          <div class="column col-5">111.33</div>
+          <div class="column col-6">NAPÓJ ALKOHOLOWY</div>
+          <div class="column col-7">AMERYKAŃSKA</div>
+        </div>
+      </div>
+      <button type="submit" class="cancel_order">USUŃ ZAMÓWIENIE</button>
+    </main>
+  </body>
+</html>

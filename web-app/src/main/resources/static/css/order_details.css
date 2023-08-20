@@ -196,12 +196,6 @@ input[type="file"] {
   height: 171.2px;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
 img {
   height: 131.2px;
 }
@@ -210,4 +204,30 @@ img {
   text-transform: uppercase;
   height: 171.2px;
   line-height: 100%;
+}
+
+.cancel_order {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 40px;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-family: "Handjet", "Arial", sans-serif;
+  font-size: 32px;
+  color: white;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+
+.cancel_order:hover {
+  color: #0c4c90;
+  background-color: white;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
 }

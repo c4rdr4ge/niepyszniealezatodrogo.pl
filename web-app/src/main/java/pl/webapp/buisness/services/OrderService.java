@@ -67,6 +67,21 @@ public class OrderService {
     }
 
     @Transactional
+    public void updateOrder(OrderDTO orderDTO) {
+        OrderEntity updatedOrder = OrderEntity.builder()
+                .orderId(orderDTO.getOrderId())
+                .orderNumber(orderDTO.getOrderNumber())
+                .orderAddressId(orderDTO.getOrderAddressId())
+                .orderDateTime(orderDTO.getOrderDateTime())
+                .orderDelivered(orderDTO.getOrderDelivered())
+                .orderDeliveredDateTime(orderDTO.getOrderDeliveredDateTime())
+                .orderRestaurantId(orderDTO.getOrderRestaurantId())
+                .user(userMapper.map(orderDTO.getUser()))
+                .build();
+        orderRepository.save(updatedOrder);
+    }
+
+    @Transactional
     public void deleteOrder(OrderDTO orderDTO) {
         orderRepository.delete(orderMapper.map(getOrderByOrderNumber(orderDTO.getOrderNumber())));
     }

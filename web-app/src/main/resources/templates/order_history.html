@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Niepysznie - Historia zamówień</title>
+    <link rel="stylesheet" href="../static/css/order_history.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../static/images/logo_final.png" alt="logo" />
+      <div class="panel_name">PANEL KLIENTA</div>
+      <div class="button_container clearfix">
+        <button class="btn_menu">POWRÓT</button>
+        <button class="btn_menu">AKTUALNE ZAMÓWIENIA</button>
+        <button class="btn_menu">HISTORIA ZAMÓWIEŃ</button>
+        <button class="btn_menu clearfix">LOGOUT</button>
+      </div>
+    </header>
+    <main>
+      <h1>HISTORIA DOSTACZONYCH ZAMÓWIEŃ:</h1>
+      <div class="list_container">
+        <div class="row clearfix">
+          <div class="column col-1">NUMER ZAMÓWIENIA</div>
+          <div class="column col-2">ADRES DOSTAWY</div>
+          <div class="column col-3">SZCZEGÓŁY ZAMÓWIENIA</div>
+        </div>
+        <div class="row clearfix">
+          <div class="column col-1">111-12345</div>
+          <div class="column col-2">WOLSKA 4 m 4</div>
+          <div class="column col-3 clearfix small_padding">
+            <button type="submit" class="btn-details">POKAŻ SZCZEGÓŁY</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
