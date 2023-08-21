@@ -7,12 +7,11 @@
     <link rel="stylesheet" th:href="@{/css/courier_panel.css}" />
   </head>
   <body>
-  <form>
     <header>
       <img th:src="@{/images/logo_final.png}" alt="logo" />
       <div class="panel_name">PANEL KURIERA</div>
       <div class="button_container clearfix">
-        <button type="submit" class="btn_menu clearfix" th:formaction="@{/}">LOGOUT</button>
+        <a class="btn_menu clearfix" th:href="@{/}">LOGOUT</a>
       </div>
     </header>
     <main>
@@ -40,6 +39,5 @@
         </div>
       </div>
     </main>
-  </form>
   </body>
 </html>

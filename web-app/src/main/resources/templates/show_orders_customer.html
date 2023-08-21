@@ -12,10 +12,10 @@
       <img th:src="@{/images/logo_final.png}" alt="logo" />
       <div class="panel_name">PANEL KLIENTA</div>
       <div class="button_container clearfix">
-        <button type="submit" class="btn_menu" th:formaction="@{/customer-panel}">POWRÓT</button>
-        <button type="submit" class="btn_menu" th:formaction="@{/show-orders-customer}">AKTUALNE ZAMÓWIENIA</button>
-        <button type="submit" class="btn_menu" th:formaction="@{/order-history}">HISTORIA ZAMÓWIEŃ</button>
-        <button type="submit" class="btn_menu clearfix" th:formaction="@{/}">LOGOUT</button>
+        <a class="btn_menu" th:href="@{/customer-panel}">POWRÓT</a>
+        <a class="btn_menu" th:href="@{/show-orders-customer}">AKTUALNE ZAMÓWIENIA</a>
+        <a class="btn_menu" th:href="@{/order-history}">HISTORIA ZAMÓWIEŃ</a>
+        <a class="btn_menu clearfix" th:href="@{/}">LOGOUT</a>
       </div>
     </header>
     <main>

@@ -7,13 +7,12 @@
     <link rel="stylesheet" th:href="@{/css/order_details.css}" />
   </head>
   <body>
-  <form>
     <header>
       <img th:src="@{/images/logo_final.png}" alt="logo" />
       <div class="panel_name">SZCZEGÓŁY ZAMÓWIENIA</div>
       <div class="button_container clearfix">
-        <button type="submit" class="btn_menu" th:formaction="@{/login}">POWRÓT</button>
-        <button type="submit" class="btn_menu clearfix" th:formaction="@{/}">LOGOUT</button>
+        <a class="btn_menu" th:href="@{/login}">POWRÓT</a>
+        <a class="btn_menu clearfix" th:href="@{/}">LOGOUT</a>
       </div>
     </header>
     <main>
@@ -47,6 +46,5 @@
       </div>
       <button type="submit" class="cancel_order">USUŃ ZAMÓWIENIE</button>
     </main>
-  </form>
   </body>
 </html>

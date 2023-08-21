@@ -7,17 +7,16 @@
       <link rel="stylesheet" th:href="@{/css/create_menu.css}" />
     </head>
     <body>
-    <form>
       <header>
         <img th:src="@{/images/logo_final.png}" alt="logo" />
         <div class="panel_name">PANEL WŁAŚCICIELA</div>
         <div class="button_container">
-          <button type="submit" class="btn_menu" th:formaction="@{/owner-panel}">POWRÓT</button>
-          <button type="submit" class="btn_menu" th:formaction="@{/create-restaurant}">NOWA RESTAURACJA</button>
-          <button type="submit" class="btn_menu" th:formaction="@{/create-menu}">DODAJ MENU</button>
-          <button type="submit" class="btn_menu" th:formaction="@{/add-street}">DODAJ ULICE</button>
-          <button type="submit" class="btn_menu" th:formaction="@{/show-orders}">ZAMÓWIENIA</button>
-          <button type="submit" class="btn_menu clearfix" th:formaction="@{/}">LOGOUT</button>
+          <a class="btn_menu" th:href="@{/owner-panel}">POWRÓT</a>
+          <a class="btn_menu" th:href="@{/create-restaurant}">NOWA RESTAURACJA</a>
+          <a class="btn_menu" th:href="@{/create-menu}">DODAJ MENU</a>
+          <a class="btn_menu" th:href="@{/add-street}">DODAJ ULICE</a>
+          <a class="btn_menu" th:href="@{/show-orders}">ZAMÓWIENIA</a>
+          <a class="btn_menu clearfix" th:href="@{/}">LOGOUT</a>
         </div>
       </header>
       <main>
@@ -122,7 +121,9 @@
           <div class="column col-6">NAPÓJ ALKOHOLOWY</div>
           <div class="column col-7">AMERYKAŃSKA</div>
           <div class="column col-8">
+            <form>
             <button type="submit" class="btn-delete">USUŃ POZYCJĘ</button>
+            </form>
           </div>
         </div>
       </div>
@@ -135,7 +136,6 @@
           $(this).prev("label").text(file);
         });
       </script>
-    </form>
     </body>
   </html>
 </DOCTYPE>
