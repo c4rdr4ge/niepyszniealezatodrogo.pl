@@ -8,7 +8,7 @@ import pl.webapp.infrastructure.database.entity.UserRoleEntity;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserRoleMapper {
 
-    public UserRoleDTO map(UserRoleEntity userRoleEntity);
+    UserRoleDTO map(UserRoleEntity userRoleEntity);
 
-    public UserRoleEntity map(UserRoleDTO userRoleDTO);
+    UserRoleEntity map(UserRoleDTO userRoleDTO);
 }

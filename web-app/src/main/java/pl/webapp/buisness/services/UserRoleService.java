@@ -1,5 +1,6 @@
 package pl.webapp.buisness.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,14 @@ public class UserRoleService {
         return userRoleRepository.findAll().stream()
                 .map(userRole -> userRoleMapper.map(userRole))
                 .toList();
+    }
+
+    @Transactional
+    public Integer getRoleIdByUserId(Integer userId) {
+        return userRoleRepository.findAll().stream()
+                .filter(userRole -> userId.equals(userRole.getUser().getUserId()))
+                .map(userRole -> userRole.getRole().getRoleId())
+                .findAny().orElseThrow(() -> new EntityNotFoundException("RoleId with userId: [%s], not found".formatted(userId)));
     }
 
     @Transactional

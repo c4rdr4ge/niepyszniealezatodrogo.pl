@@ -23,6 +23,11 @@ public class RestaurantController {
         return restaurantService.getAllRestaurants();
     }
 
+    @GetMapping(value = "/restaurant-by-owner-id/{ownerId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<RestaurantDTO> getRestaurantByOwnerId(@PathVariable Integer ownerId) {
+        return restaurantService.getRestaurantByOwnerId(ownerId);
+    }
+
     @GetMapping(value = "/restaurant-by-id/{restaurantId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public RestaurantDTO getRestaurantById(@PathVariable Integer restaurantId) {
         return restaurantService.getRestaurantById(restaurantId);

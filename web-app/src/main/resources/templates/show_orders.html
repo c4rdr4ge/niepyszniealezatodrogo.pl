@@ -7,16 +7,14 @@
     <link rel="stylesheet" th:href="@{/css/show_orders.css}" />
   </head>
   <body>
-  <form>
     <header>
       <img th:src="@{/images/logo_final.png}" alt="logo" />
-      <div class="panel_name">PANEL WŁAŚCICIELA</div>
+      <div class="panel_name">PANEL WŁAŚCICIELA: #<span th:text="${username}"></span></div>
       <div class="button_container clearfix">
+        <a class="btn_menu" th:href="@{/owner-panel}">POWRÓT</a>
         <a class="btn_menu" th:href="@{/create-restaurant}">NOWA RESTAURACJA</a>
-        <a class="btn_menu" th:href="@{/create-menu}">DODAJ MENU</a>
         <a class="btn_menu" th:href="@{/add-street}">DODAJ ULICE</a>
-        <a class="btn_menu" th:href="@{/show-orders}">ZAMÓWIENIA</a>
-        <a class="btn_menu clearfix" th:href="@{/}">LOGOUT</a>
+        <a class="btn_menu clearfix" th:href="@{/logout}">LOGOUT</a>
       </div>
     </header>
     <main>
@@ -30,12 +28,13 @@
         <div class="row clearfix">
           <div class="column col-1">111-12345</div>
           <div class="column col-2">WOLSKA 4 m 4</div>
-          <div class="column col-3 clearfix small_padding">
-            <button type="submit" class="btn-details">POKAŻ SZCZEGÓŁY</button>
+          <div class="column col-3 clearfix">
+            <form action="#" th:action="@{/order-details}" th:method="GET">
+              <button type="submit" class="btn-menu" >Szczegóły zamówienia</button>
+            </form>
           </div>
         </div>
       </div>
     </main>
-  </form>
   </body>
 </html>

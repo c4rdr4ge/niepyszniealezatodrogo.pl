@@ -1,9 +1,10 @@
-package pl.restaurantsapi.buisness.dto;
+package pl.webapp.buisness.dto.webdtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 
@@ -11,16 +12,13 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishDTO {
+public class WebDishDTO {
 
-    private Integer dishId;
     private String dishName;
     private String dishDescription;
     private Integer dishWeight;
-    private String dishPhotoUrl;
+    private MultipartFile dishPhotoFile;
     private BigDecimal dishPrice;
     private String category;
     private String kitchenType;
-
-
 }

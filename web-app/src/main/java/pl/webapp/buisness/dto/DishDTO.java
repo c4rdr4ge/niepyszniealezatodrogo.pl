@@ -1,4 +1,4 @@
-package pl.restaurantsapi.buisness.dto;
+package pl.webapp.buisness.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,14 +13,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class DishDTO {
 
-    private Integer dishId;
     private String dishName;
     private String dishDescription;
     private Integer dishWeight;
-    private String dishPhotoUrl;
+    private String dishPhotoURL;
     private BigDecimal dishPrice;
     private String category;
     private String kitchenType;
-
-
 }

@@ -110,12 +110,30 @@ h1 {
   cursor: pointer;
 }
 
-.small_padding {
-  padding: 15px;
-}
-
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
 }
+
+.btn-menu {
+  display: block;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-family: "Handjet", "Arial", sans-serif;
+  font-size: 1.15rem;
+  color: white;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+
+.btn-menu:hover {
+  color: #0c4c90;
+  background-color: white;
+  transition: 1s;
+  cursor: pointer;
+}
+

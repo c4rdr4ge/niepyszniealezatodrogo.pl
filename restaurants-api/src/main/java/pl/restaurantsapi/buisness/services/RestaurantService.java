@@ -77,5 +77,10 @@ public class RestaurantService {
     }
 
 
-
+    public List<RestaurantDTO> getRestaurantByOwnerId(Integer ownerId) {
+        return restaurantRepository.findAll().stream()
+                .filter(restaurant -> ownerId.equals(restaurant.getRestaurantOwner().getRestaurantOwnerId()))
+                .map(restaurant ->restaurantMapper.map(restaurant))
+                .toList();
+    }
 }

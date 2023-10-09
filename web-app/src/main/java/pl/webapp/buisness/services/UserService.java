@@ -28,8 +28,9 @@ public class UserService {
 
     @Transactional
     public UserDTO getUserByUserName(String username) {
-        return userRepository.findAll().stream()
-                .filter(user -> username.equals(user.getUserName()))
+        List<UserEntity> all = userRepository.findAll();
+        return all.stream()
+                .filter(user -> username.equals(user.getUserUsername()))
                 .map(user -> userMapper.map(user))
                 .findAny().orElseThrow(() -> new EntityNotFoundException("User with username: [%s], not found.". formatted(username)));
     }

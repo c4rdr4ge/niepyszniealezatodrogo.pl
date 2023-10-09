@@ -38,8 +38,8 @@ public class DishService {
                 .dishWeight(dishDTO.getDishWeight())
                 .dishPhotoUrl(dishDTO.getDishPhotoUrl())
                 .dishPrice(dishDTO.getDishPrice())
-                .category(categoryMapper.map(dishDTO.getCategory()))
-                .kitchenType(kitchenTypeMapper.map(dishDTO.getKitchenType()))
+                .category(dishMapper.map(dishDTO).getCategory())
+                .kitchenType(dishMapper.map(dishDTO).getKitchenType())
                 .build();
 
         dishRepository.save(dishEntity);

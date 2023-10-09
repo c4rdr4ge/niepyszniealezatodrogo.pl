@@ -7,11 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.webapp.buisness.dto.OrderDTO;
 import pl.webapp.buisness.dto.mappers.OrderMapper;
-import pl.webapp.buisness.dto.webdtos.CourierAddressDTO;
+import pl.webapp.buisness.dto.webdtos.WebCourierAddressDTO;
 import pl.webapp.buisness.services.OrderService;
 import pl.webapp.consumer.services.AddressConsumerService;
 import pl.webapp.consumer.services.RestaurantConsumerService;
-import pl.webapp.infrastructure.database.entity.OrderEntity;
 
 import java.time.OffsetDateTime;
 import java.util.stream.Stream;
@@ -27,8 +26,8 @@ public class CourierPanelWebController {
 
     @GetMapping(value = "/courier-panel")
     public String courierPanelPage(Model model) {
-        Stream<CourierAddressDTO> undeliveredOrders = orderService.getUndeliveredOrders().stream()
-                .map(orderDTO -> CourierAddressDTO.builder()
+        Stream<WebCourierAddressDTO> undeliveredOrders = orderService.getUndeliveredOrders().stream()
+                .map(orderDTO -> WebCourierAddressDTO.builder()
                         .orderRestaurantName(restaurantConsumerService.getRestaurantNameFromApi(orderDTO.getOrderRestaurantId()))
                         .orderNumber(orderDTO.getOrderNumber())
                         .orderAddressStreet(addressConsumerService.getAddressNameFromApi(orderDTO.getOrderAddressId()))

@@ -8,7 +8,7 @@ import pl.webapp.infrastructure.database.entity.OrderHistoryEntity;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface OrderHistoryMapper {
 
-    public OrderHistoryDTO map(OrderHistoryEntity orderHistoryEntity);
+    OrderHistoryDTO map(OrderHistoryEntity orderHistoryEntity);
 
-    public OrderHistoryEntity map(OrderHistoryDTO orderHistoryDTO);
+    OrderHistoryEntity map(OrderHistoryDTO orderHistoryDTO);
 }

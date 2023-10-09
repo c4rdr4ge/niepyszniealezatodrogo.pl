@@ -1,6 +1,8 @@
 package pl.webapp.infrastructure.database.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.util.Set;
@@ -33,10 +35,12 @@ public class UserEntity {
     @Column(name = "user_surname")
     private String userSurname;
 
+    @Pattern(regexp = "^\\+\\s\\d\\d\\d\\s\\d\\d\\d\\s\\d\\d\\d$")
     @Column(name = "user_phone")
     private String userPhone;
 
-    @Column(name = "user_email")
+    @Email
+    @Column(name = "user_email", unique = true)
     private String userEmail;
 
     @Column(name = "user_address_id")

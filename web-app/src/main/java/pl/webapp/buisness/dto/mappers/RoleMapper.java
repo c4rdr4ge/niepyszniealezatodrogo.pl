@@ -8,7 +8,7 @@ import pl.webapp.infrastructure.database.entity.RoleEntity;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface RoleMapper {
 
-    public RoleDTO map(RoleEntity roleEntity);
+    RoleDTO map(RoleEntity roleEntity);
 
-    public RoleEntity map(RoleDTO roleDTO);
+    RoleEntity map(RoleDTO roleDTO);
 }

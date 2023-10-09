@@ -6,7 +6,7 @@ CREATE TABLE user_table
     user_name                       VARCHAR(32)                 NOT NULL,
     user_surname                    VARCHAR(64)                 NOT NULL,
     user_phone                      VARCHAR(32)                 NOT NULL,
-    user_email                      VARCHAR(64)                 NOT NULL,
+    user_email                      VARCHAR(64)                 NOT NULL        UNIQUE,
     user_address_id                 INTEGER                     NOT NULL,
     PRIMARY KEY (user_id)
 );

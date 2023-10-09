@@ -1,6 +1,10 @@
 package pl.restaurantsapi.infrastructure.database.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.util.Set;
@@ -33,12 +37,16 @@ public class RestaurantOwnerEntity {
     @Column(name = "restaurant_owner_surname")
     private String restaurantOwnerSurname;
 
+    @Pattern(regexp = "^\\+\\s\\d\\d\\d\\s\\d\\d\\d\\s\\d\\d\\d$")
     @Column(name = "restaurant_owner_phone")
     private String restaurantOwnerPhone;
 
+    @Email
     @Column(name = "restaurant_owner_email", unique = true)
     private String restaurantOwnerEmail;
 
+    @Min(10)
+    @Max(10)
     @Column(name = "restaurant_owner_nip", unique = true)
     private String restaurantOwnerNip;
 

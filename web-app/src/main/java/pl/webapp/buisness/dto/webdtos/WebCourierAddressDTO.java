@@ -11,7 +11,7 @@ import java.time.OffsetDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourierAddressDTO {
+public class WebCourierAddressDTO {
 
     String orderRestaurantName;
     String orderNumber;

@@ -9,12 +9,10 @@
   <body>
     <header>
       <img th:src="@{/images/logo_final.png}" alt="logo" />
-      <div class="panel_name">PANEL WŁAŚCICIELA</div>
+      <div class="panel_name">PANEL WŁAŚCICIELA: #<span th:text="${username}"></span></div>
       <div class="button_container clearfix">
         <a class="btn_menu" th:href="@{/owner-panel}">POWRÓT</a>
         <a class="btn_menu" th:href="@{/create-restaurant}">NOWA RESTAURACJA</a>
-        <a class="btn_menu" th:href="@{/create-menu}">DODAJ MENU</a>
-        <a class="btn_menu" th:href="@{/add-street}">DODAJ ULICE</a>
         <a class="btn_menu" th:href="@{/show-orders}">ZAMÓWIENIA</a>
         <a class="btn_menu clearfix" th:href="@{/}">LOGOUT</a>
       </div>

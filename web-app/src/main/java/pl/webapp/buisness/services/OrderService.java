@@ -75,6 +75,7 @@ public class OrderService {
                 .orderDateTime(orderDTO.getOrderDateTime())
                 .orderDelivered(orderDTO.getOrderDelivered())
                 .orderDeliveredDateTime(orderDTO.getOrderDeliveredDateTime())
+                .orderAddInfo(orderDTO.getOrderAddInfo())
                 .orderRestaurantId(orderDTO.getOrderRestaurantId())
                 .user(userMapper.map(orderDTO.getUser()))
                 .build();

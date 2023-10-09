@@ -8,7 +8,7 @@ import pl.webapp.infrastructure.database.entity.OrderMenuPositionEntity;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface OrderMenuPositionMapper {
 
-    public OrderMenuPositionDTO map(OrderMenuPositionEntity orderMenuPositionEntity);
+    OrderMenuPositionDTO map(OrderMenuPositionEntity orderMenuPositionEntity);
 
-    public OrderMenuPositionEntity map(OrderMenuPositionDTO orderMenuPositionDTO);
+    OrderMenuPositionEntity map(OrderMenuPositionDTO orderMenuPositionDTO);
 }

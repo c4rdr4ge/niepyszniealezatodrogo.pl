@@ -31,4 +31,5 @@ public class URLS {
     public static String RESTAURANT_BY_ID_URL = "http://localhost:8081/restaurants-api/restaurant-by-id/";
     public static String RESTAURANT_BY_KITCHEN_TYPE_URL = "http://localhost:8081/restaurants-api/restaurant-by-kitchen-type/";
     public static String RESTAURANT_BY_NAME_URL = "http://localhost:8081/restaurants-api/restaurant-by-name/";
+    public static String RESTAURANT_BY_OWNER_ID_URL = "http://localhost:8081/restaurants-api/restaurant-by-owner-id/";
 }

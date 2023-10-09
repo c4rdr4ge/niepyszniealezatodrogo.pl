@@ -19,8 +19,8 @@ public class RESTDishDTO {
     private Integer dishWeight;
     private String dishPhotoUrl;
     private BigDecimal dishPrice;
-    private RESTCategoryDTO category;
-    private RESTKitchenTypeDTO kitchenType;
+    private String category;
+    private String kitchenType;
 
 
 }
