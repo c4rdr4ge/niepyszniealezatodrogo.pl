@@ -38,4 +38,10 @@ public class MenuPositionController {
         menuPositionService.addNewMenuPosition(menuPositionDTO);
         return new ResponseEntity<>(menuPositionDTO, HttpStatus.CREATED);
     }
+
+    @DeleteMapping(value = "/menu-position", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<MenuPositionDTO> deleteMenuPosition(@RequestBody MenuPositionDTO menuPositionDTO){
+        menuPositionService.deleteMenuPosition(menuPositionDTO);
+        return new ResponseEntity<>(menuPositionDTO, HttpStatus.NO_CONTENT);
+    }
 }

@@ -2,11 +2,13 @@ package pl.webapp.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.webapp.buisness.dto.MenuPositionDTO;
 import pl.webapp.buisness.dto.webdtos.WebDishDTO;
 import pl.webapp.buisness.services.UserService;
 import pl.webapp.consumer.restaurant_api_dtos.RESTDishDTO;
@@ -38,7 +40,7 @@ public class CreateMenuWebController {
     ){
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
-        List<RESTDishDTO> menuPositions = menuConsumerService.getDishesInRestaurant(restaurantId);
+        List<RESTDishDTO> menuPositions = menuConsumerService.getDishesByRestaurantId(restaurantId);
         model.addAttribute("username", username);
         model.addAttribute("menuPositions", menuPositions);
         model.addAttribute("restaurantId", restaurantId);
@@ -53,9 +55,22 @@ public class CreateMenuWebController {
             @ModelAttribute(value = "webDishDTO") WebDishDTO webDishDTO,
             Model model
     ) throws IOException {
-        System.out.println(UPLOAD_DIR);
-        Files.write(Path.of(UPLOAD_DIR + webDishDTO.getDishPhotoFile().getOriginalFilename()), webDishDTO.getDishPhotoFile().getBytes());
-        menuConsumerService.saveDishToMenu(webDishDTO);
+        try {
+            Files.write(Path.of(UPLOAD_DIR + webDishDTO.getDishPhotoFile().getOriginalFilename()), webDishDTO.getDishPhotoFile().getBytes());
+        }catch (Exception e) {
+            System.out.println("Please choose dish image");
+        }
+        menuConsumerService.saveMenuPosition(restaurantId, webDishDTO);
         return "redirect:/create-menu?restaurantId=" + restaurantId +"&restaurantName=" + restaurantName;
+    }
+
+    @DeleteMapping(value = "/create-menu/delete")
+    public String deleteMenuPosition(
+            @RequestParam(name = "dishId") Integer dishId,
+            @RequestParam(name = "restaurantId") Integer restaurantId,
+            @RequestParam(name = "restaurantName") String restaurantName
+    ) {
+        menuConsumerService.deleteMenuPosition(dishId);
+        return "redirect:/create-menu?restaurantId=" + restaurantId + "&restaurantName=" + restaurantName;
     }
 }

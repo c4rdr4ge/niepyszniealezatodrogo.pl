@@ -5,8 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.SecurityBuilder;
+import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -50,12 +54,14 @@ public class SecurityConfig {
                         .requestMatchers("/show-orders").hasRole("OWNER")
                         .requestMatchers("/create-menu").hasRole("OWNER")
                         .requestMatchers("/create-menu/upload").hasRole("OWNER")
+                        .requestMatchers("/create-menu/**").hasRole("OWNER")
                         .requestMatchers("/customer-panel").hasRole("CUSTOMER")
                         .requestMatchers("/show-orders-customer").hasRole("CUSTOMER")
                         .requestMatchers("/order-history").hasRole("CUSTOMER")
                         .requestMatchers("/courier-panel").hasRole("DELIVERY")
                         .requestMatchers("/courier-panel/**").hasRole("DELIVERY")
-                        .requestMatchers("/order-details").hasAnyRole("OWNER", "CUSTOMER"))
+                        .requestMatchers("/order-details").hasAnyRole("OWNER", "CUSTOMER")
+                        .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
                         .defaultSuccessUrl("/redirector", true)
@@ -74,6 +80,5 @@ public class SecurityConfig {
                 .build()).toList();
         return new InMemoryUserDetailsManager(usersDetails);
     }
-
 
 }

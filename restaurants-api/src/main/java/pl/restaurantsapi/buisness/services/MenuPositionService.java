@@ -10,7 +10,9 @@ import pl.restaurantsapi.buisness.dto.mappers.DishMapper;
 import pl.restaurantsapi.buisness.dto.mappers.MenuMapper;
 import pl.restaurantsapi.buisness.dto.mappers.MenuPositionMapper;
 import pl.restaurantsapi.infrastructure.database.entities.MenuPositionEntity;
+import pl.restaurantsapi.infrastructure.database.repositories.DishRepository;
 import pl.restaurantsapi.infrastructure.database.repositories.MenuPositionRepository;
+import pl.restaurantsapi.infrastructure.database.repositories.MenuRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,10 +22,17 @@ import java.util.Optional;
 public class MenuPositionService {
 
     MenuPositionRepository menuPositionRepository;
+
+    MenuRepository menuRepository;
     MenuPositionMapper menuPositionMapper;
+
+    CategoryService categoryService;
+    KitchenTypeService kitchenTypeService;
 
     MenuMapper menuMapper;
     DishMapper dishMapper;
+
+    DishRepository dishRepository;
 
 
     @Transactional
@@ -52,12 +61,29 @@ public class MenuPositionService {
     }
 
     @Transactional
+    public MenuPositionEntity getMenuPositionByDishId(Integer dishId) {
+        return menuPositionRepository.findAll().stream()
+                .filter(menuPosition -> dishId.equals(menuPosition.getDish().getDishId()))
+                .findAny().orElseThrow(() -> new RuntimeException("There is no dish with id: [%s]".formatted(dishId)));
+    }
+
+    @Transactional
     public void addNewMenuPosition(MenuPositionDTO menuPositionDTO) {
         MenuPositionEntity newMenuPosition = MenuPositionEntity.builder()
-                .menu(menuMapper.map(menuPositionDTO.getMenu()))
-                .dish(dishMapper.map(menuPositionDTO.getDish()))
+                .menu(menuRepository.findById(menuPositionDTO.getMenu().getMenuId())
+                        .orElseThrow(() -> new RuntimeException("There is no menu with id: [%s]".formatted(menuPositionDTO.getMenu().getMenuId()))))
+                .dish(dishRepository.findById(menuPositionDTO.getDish().getDishId())
+                        .orElseThrow(() -> new RuntimeException("There is no dish with id: [%s]".formatted(menuPositionDTO.getDish().getDishId()))))
                 .build();
 
         menuPositionRepository.save(newMenuPosition);
     }
+
+    @Transactional
+    public void deleteMenuPosition(MenuPositionDTO menuPositionDTO) {
+        MenuPositionEntity menuPositionEntity = getMenuPositionByDishId(menuPositionDTO.getDish().getDishId());
+
+        menuPositionRepository.delete(menuPositionEntity);
+    }
+
 }

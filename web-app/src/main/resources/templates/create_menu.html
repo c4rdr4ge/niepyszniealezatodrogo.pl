@@ -81,17 +81,17 @@
           <div>
             <p>KATEGORIA:</p>
             <select name="dish_category" id="dish_category" th:field="*{category}">
-              <option value="ZUPA">ZUPA</option>
-              <option value="GŁÓWNE DANIE">GŁÓWNE DANIE</option>
-              <option value="NAPÓJ ALKOHOLOWY">NAPÓJ ALKOHOLOWY</option>
+              <option value="Zupa">Zupa</option>
+              <option value="Główne danie">Główne danie</option>
+              <option value="Napój alkoholowy">Napój alkoholowy</option>
             </select>
           </div>
           <div>
             <p>TYP KUCHNI:</p>
             <select name="kitchen_type" id="kitchen_type" th:field="*{kitchenType}">
-              <option value="JAPOŃSKA">JAPOŃSKA</option>
-              <option value="GRECKA">GRECKA</option>
-              <option value="AMERYKAŃSKA">AMERYKAŃSKA</option>
+              <option value="Japońska">Japońska</option>
+              <option value="Grecka">Grecka</option>
+              <option value="Amerykańska">Amerykańska</option>
             </select>
           </div>
           <div class="clearfix">
@@ -122,7 +122,10 @@
           <div class="column col-6" th:text="${menuPosition.category}"></div>
           <div class="column col-7" th:text="${menuPosition.kitchenType}"></div>
           <div class="column col-8">
-            <form>
+            <form th:action="@{create-menu/delete}" th:method="delete">
+              <input type="hidden" id="dishId" name="dishId" th:value="${menuPosition.dishId}">
+              <input type="hidden" name="restaurantId" th:value="${restaurantId}">
+              <input type="hidden" name="restaurantName" th:value="${restaurantName}">
               <button type="submit" class="btn-delete">USUŃ POZYCJĘ</button>
             </form>
           </div>

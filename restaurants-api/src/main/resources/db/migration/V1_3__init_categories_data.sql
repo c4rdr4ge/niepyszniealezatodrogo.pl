@@ -1,11 +1,11 @@
 INSERT INTO category (category_name)
 VALUES
-('Soup'),
-('Main Dish'),
-('Dessert'),
-('Alcohol Drink'),
+('Zupa'),
+('Główne danie'),
+('Deser'),
+('Napój alkoholowy'),
 ('Fast Food'),
-('Breakfast'),
-('Warm Drink'),
-('Cake'),
-('Salad')
+('Śniadanie'),
+('Ciepły napój'),
+('Ciasto'),
+('Sałatka')

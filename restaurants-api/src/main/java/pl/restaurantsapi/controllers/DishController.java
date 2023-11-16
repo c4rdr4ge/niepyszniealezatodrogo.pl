@@ -8,7 +8,9 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.restaurantsapi.buisness.dto.DishDTO;
+import pl.restaurantsapi.buisness.dto.mappers.DishMapper;
 import pl.restaurantsapi.buisness.services.DishService;
+import pl.restaurantsapi.infrastructure.database.entities.DishEntity;
 
 import java.util.List;
 
@@ -18,10 +20,12 @@ import java.util.List;
 public class DishController {
 
     DishService dishService;
+    DishMapper dishMapper;
 
     @PostMapping(value = "/dish", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<DishDTO> addNewDish(@RequestBody DishDTO dishDTO) {
-        dishService.addNewDish(dishDTO);
+        DishEntity dishEntity = dishService.addNewDish(dishDTO);
+        dishDTO = dishMapper.map(dishEntity);
         return new ResponseEntity<>(dishDTO, HttpStatus.CREATED);
     }
 

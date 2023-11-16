@@ -13,10 +13,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class DishDTO {
 
+    private Integer dishId;
     private String dishName;
     private String dishDescription;
     private Integer dishWeight;
-    private String dishPhotoURL;
+    private String dishPhotoUrl;
     private BigDecimal dishPrice;
     private String category;
     private String kitchenType;

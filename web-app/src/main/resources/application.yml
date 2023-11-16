@@ -22,6 +22,15 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+  web:
+    resources:
+     static-locations: file:web-app/src/main/resources/static/
+     cache:
+      period: 0
 
   jpa:
     hibernate:

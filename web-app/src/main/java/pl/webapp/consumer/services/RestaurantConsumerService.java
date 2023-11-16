@@ -3,7 +3,6 @@ package pl.webapp.consumer.services;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import pl.webapp.consumer.restaurant_api_dtos.RESTDishDTO;
 import pl.webapp.consumer.restaurant_api_dtos.RESTRestaurantDTO;
 import pl.webapp.consumer.utils.URLS;
 

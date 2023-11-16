@@ -13,7 +13,7 @@ public interface DishMapper {
                 .dishName(webDishDTO.getDishName())
                 .dishDescription(webDishDTO.getDishDescription())
                 .dishWeight(webDishDTO.getDishWeight())
-                .dishPhotoURL("/images/" + webDishDTO.getDishPhotoFile().getOriginalFilename())
+                .dishPhotoUrl("/images/" + webDishDTO.getDishPhotoFile().getOriginalFilename())
                 .dishPrice(webDishDTO.getDishPrice())
                 .category(webDishDTO.getCategory())
                 .kitchenType(webDishDTO.getKitchenType());

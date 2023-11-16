@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class WebDishDTO {
 
+    private Integer dishId;
     private String dishName;
     private String dishDescription;
     private Integer dishWeight;

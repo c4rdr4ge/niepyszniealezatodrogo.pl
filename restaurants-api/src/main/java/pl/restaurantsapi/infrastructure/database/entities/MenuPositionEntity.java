@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@ToString(of = {"menuPositionId"})
 @EqualsAndHashCode(of = "menuPositionId")
 @Table(name = "menu_position")
 public class MenuPositionEntity {

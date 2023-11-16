@@ -38,6 +38,16 @@ public class CategoryService {
     }
 
     @Transactional
+    public Integer getCategoryIdByName(String categoryName) {
+
+        return categoryRepository.findAll().stream()
+                .filter(category -> category.getCategoryName().equals(categoryName))
+                .map(CategoryEntity::getCategoryId)
+                .findAny()
+                .orElseThrow(() -> new RuntimeException("Cannot find category with this name: %s".formatted(categoryName)));
+    }
+
+    @Transactional
     public void addNewCategory(CategoryDTO categoryDTO) {
         CategoryEntity categoryEntity = CategoryEntity.builder()
                 .categoryName(categoryDTO.getCategoryName())

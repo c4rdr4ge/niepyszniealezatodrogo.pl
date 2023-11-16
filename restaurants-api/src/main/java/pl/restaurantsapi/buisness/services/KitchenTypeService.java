@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.restaurantsapi.buisness.dto.KitchenTypeDTO;
 import pl.restaurantsapi.buisness.dto.mappers.KitchenTypeMapper;
+import pl.restaurantsapi.infrastructure.database.entities.CategoryEntity;
 import pl.restaurantsapi.infrastructure.database.entities.KitchenTypeEntity;
 import pl.restaurantsapi.infrastructure.database.repositories.KitchenTypeRepository;
 
@@ -35,6 +36,16 @@ public class KitchenTypeService {
         }else {
             throw new EntityNotFoundException("KitchenType with kitchenTypeId: [%s], not found".formatted(kitchenTypeId));
         }
+    }
+
+    @Transactional
+    public Integer getKitchenTypeIdByName(String kitchenTypeName) {
+
+        return kitchenTypeRepository.findAll().stream()
+                .filter(kitchenType -> kitchenType.getKitchenTypeName().equals(kitchenTypeName))
+                .map(KitchenTypeEntity::getKitchenTypeId)
+                .findAny()
+                .orElseThrow(() -> new RuntimeException("Cannot find kitchen type with this name: %s".formatted(kitchenTypeName)));
     }
 
     @Transactional

@@ -11,7 +11,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@ToString(of = {"menuId"})
 @EqualsAndHashCode(of = "menuId")
 @Table(name = "menu")
 public class MenuEntity {

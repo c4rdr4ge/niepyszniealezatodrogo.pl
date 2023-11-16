@@ -6,4 +6,5 @@ import pl.restaurantsapi.infrastructure.database.entities.MenuPositionEntity;
 
 @Repository
 public interface MenuPositionRepository extends JpaRepository<MenuPositionEntity, Integer> {
+
 }
